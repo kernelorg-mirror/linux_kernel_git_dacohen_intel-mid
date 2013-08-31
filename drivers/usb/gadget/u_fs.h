@@ -210,16 +210,18 @@ struct ffs_data {
 
 	/* filled by __ffs_data_got_descs() */
 	/*
-	 * Real descriptors are 16 bytes after raw_descs (so you need
-	 * to skip 16 bytes (ie. ffs->raw_descs + 16) to get to the
+	 * Real descriptors are 20 bytes after raw_descs (so you need
+	 * to skip 20 bytes (ie. ffs->raw_descs + 20) to get to the
 	 * first full speed descriptor).  raw_descs_length and
-	 * raw_fs_descs_length do not have those 16 bytes added.
+	 * raw_fs_descs_length do not have those 20 bytes added.
 	 */
 	const void			*raw_descs;
 	unsigned			raw_descs_length;
 	unsigned			raw_fs_descs_length;
+	unsigned			raw_hs_descs_length;
 	unsigned			fs_descs_count;
 	unsigned			hs_descs_count;
+	unsigned			ss_descs_count;
 
 	unsigned short			strings_count;
 	unsigned short			interfaces_count;
