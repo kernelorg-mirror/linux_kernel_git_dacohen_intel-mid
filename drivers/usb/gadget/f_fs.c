@@ -2070,7 +2070,8 @@ static int _ffs_func_bind(struct usb_configuration *c,
 	vla_item_with_sz(d, short, inums, ffs->interfaces_count);
 	vla_item_with_sz(d, char, raw_descs,
 		super ? ffs->raw_descs_length :
-		high ? ffs->raw_hs_descs_length : ffs->raw_fs_descs_length);
+		high ? ffs->raw_hs_descs_length + ffs->raw_fs_descs_length :
+		ffs->raw_fs_descs_length);
 	char *vlabuf;
 
 	ENTER();
@@ -2128,7 +2129,7 @@ static int _ffs_func_bind(struct usb_configuration *c,
 	}
 
 	if (likely(super)) {
-		func->function.ss_descriptors = data->ss_descs;
+		func->function.ss_descriptors = vla_ptr(vlabuf, d, ss_descs);
 		ret = ffs_do_descs(ffs->ss_descs_count,
 				   vla_ptr(vlabuf, d, raw_descs) + ret,
 				   d_raw_descs__sz - ret,
