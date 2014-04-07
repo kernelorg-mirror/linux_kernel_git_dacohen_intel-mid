@@ -1057,6 +1057,8 @@ CONFIG_TI_ST=m
 # Altera FPGA firmware download module
 #
 # CONFIG_ALTERA_STAPL is not set
+# CONFIG_INTEL_MEI is not set
+# CONFIG_INTEL_MEI_ME is not set
 # CONFIG_VMWARE_VMCI is not set
 
 #
@@ -2070,7 +2072,7 @@ CONFIG_X86_PKG_TEMP_THERMAL=m
 # Texas Instruments thermal drivers
 #
 CONFIG_WATCHDOG=y
-# CONFIG_WATCHDOG_CORE is not set
+CONFIG_WATCHDOG_CORE=y
 # CONFIG_WATCHDOG_NOWAYOUT is not set
 
 #
@@ -2093,7 +2095,7 @@ CONFIG_WATCHDOG=y
 # CONFIG_I6300ESB_WDT is not set
 # CONFIG_IE6XX_WDT is not set
 # CONFIG_INTEL_SCU_WATCHDOG is not set
-CONFIG_INTEL_SCU_WATCHDOG_EVO=y
+CONFIG_INTEL_MID_WATCHDOG=y
 # CONFIG_ITCO_WDT is not set
 # CONFIG_IT8712F_WDT is not set
 # CONFIG_IT87_WDT is not set
