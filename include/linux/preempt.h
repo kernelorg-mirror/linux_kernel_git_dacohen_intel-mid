@@ -17,6 +17,10 @@
 
 #include <asm/preempt.h>
 
+#ifndef tif_need_resched
+#define tif_need_resched() test_thread_flag(TIF_NEED_RESCHED)
+#endif
+
 #if defined(CONFIG_DEBUG_PREEMPT) || defined(CONFIG_PREEMPT_TRACER)
 extern void preempt_count_add(int val);
 extern void preempt_count_sub(int val);
