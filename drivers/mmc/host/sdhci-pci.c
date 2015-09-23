@@ -1724,8 +1724,13 @@ static int sdhci_pci_probe(struct pci_dev *pdev,
 	}
 
 	ret = pci_enable_device(pdev);
+	
+	/*
+	 * HACK: investigate why it returns -EBUSY.
+	 * But looks like we ignore for now.
 	if (ret)
 		return ret;
+	 */
 
 	chip = kzalloc(sizeof(struct sdhci_pci_chip), GFP_KERNEL);
 	if (!chip) {
